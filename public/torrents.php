@@ -920,6 +920,11 @@ if ($allsec == 1 || $enablespecial != 'yes')
 		$where = "WHERE $where ";
 	else $where = "";
 	$sql = "SELECT COUNT(*) FROM torrents " . ($search_area == 3 || $column == "owner" ? "LEFT JOIN users ON torrents.owner = users.id " : "") . $tagFilter . $where;
+	if ($tagId != 8) {
+        $where .= "AND torrents.id NOT IN (
+            SELECT torrent_id FROM torrent_tags WHERE tag_id = 8
+        ) ";
+    }
 }
 else
 {

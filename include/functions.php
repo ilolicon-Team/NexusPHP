@@ -2317,6 +2317,10 @@ function menu ($selected = "home") {
 		$selected = "faq";
     }elseif (preg_match("/contactstaff/i", $script_name)) {
         $selected = "contactstaff";
+    }elseif (preg_match("/torrents.php\?tag_id=8/i", $_SERVER['REQUEST_URI'])) {
+		$selected = "9kg";
+	}elseif (preg_match("/torrents.php\?tag_id=11/i", $_SERVER['REQUEST_URI'])) {
+		$selected = "loli";
     }elseif (preg_match("/staff/i", $script_name)) {
         $selected = "staff";
 	}else
@@ -2335,7 +2339,10 @@ function menu ($selected = "home") {
             print ("<li" . ($selected == "forums" ? " class=\"selected\"" : "") . "><a href=\"forums.php\">".$lang_functions['text_forums']."</a></li>");
         else
             print ("<li" . ($selected == "forums" ? " class=\"selected\"" : "") . "><a href=\"" . $extforumurl."\" target=\"_blank\">".$lang_functions['text_forums']."</a></li>");
+            print ("<li" . ($selected == "forums" ? " class=\"selected\"" : "") . "><a href=\"https://nekofish.cc/public/pt/\">"新论坛"</a></li>");
         print ("<li" . ($selected == "torrents" ? " class=\"selected\"" : "") . "><a href=\"torrents.php\" rel='sub-menu'>".($normalSectionName[$lang] ?? $lang_functions['text_torrents'])."</a></li>");
+        print ("<li" . ($selected == "9kg" ? " class=\"selected\"" : "") . "><a href=\"torrents.php?tag_id=8\"> 9KG </a></li>");
+        print ("<li" . ($selected == "loli" ? " class=\"selected\"" : "") . "><a href=\"torrents.php?tag_id=11\"> LOLI </a></li>");
         if ($enablespecial == 'yes' && user_can('view_special_torrent'))
             print ("<li" . ($selected == "special" ? " class=\"selected\"" : "") . "><a href=\"special.php\">".($specialSectionName[$lang] ?? $lang_functions['text_special'])."</a></li>");
         if ($enableoffer == 'yes')
