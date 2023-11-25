@@ -16,18 +16,18 @@ return [
     ],
     'status' => [
         \App\Models\Plugin::STATUS_NORMAL => '正常',
-        \App\Models\Plugin::STATUS_NOT_INSTALLED => '未安装',
+        \App\Models\Plugin::STATUS_NOT_INSTALLED => '还没安装呢~',
 
         \App\Models\Plugin::STATUS_PRE_INSTALL => '准备安装',
-        \App\Models\Plugin::STATUS_INSTALLING => '安装中',
-        \App\Models\Plugin::STATUS_INSTALL_FAILED => '安装失败',
+        \App\Models\Plugin::STATUS_INSTALLING => '安装中，请耐心等待~',
+        \App\Models\Plugin::STATUS_INSTALL_FAILED => '安装失败，主人出错了~',
 
         \App\Models\Plugin::STATUS_PRE_UPDATE => '准备升级',
-        \App\Models\Plugin::STATUS_UPDATING => '升级中',
-        \App\Models\Plugin::STATUS_UPDATE_FAILED => '升级失败',
+        \App\Models\Plugin::STATUS_UPDATING => '升级中，注意不要惹毛我哦~',
+        \App\Models\Plugin::STATUS_UPDATE_FAILED => '升级失败，唔...可能是我的问题~',
 
         \App\Models\Plugin::STATUS_PRE_DELETE => '准备删除',
-        \App\Models\Plugin::STATUS_DELETING => '删除中',
-        \App\Models\Plugin::STATUS_DELETE_FAILED => '删除失败',
+        \App\Models\Plugin::STATUS_DELETING => '删除中，哼，不喜欢了吗？',
+        \App\Models\Plugin::STATUS_DELETE_FAILED => '删除失败，我...我会更加努力的~',
     ],
 ];

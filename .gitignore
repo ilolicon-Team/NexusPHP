@@ -1,5 +1,5 @@
 /node_modules
-/torrents
+/torrents/*.torrent
 /vendor
 /public/hot
 /public/storage

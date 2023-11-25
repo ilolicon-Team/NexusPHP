@@ -2,7 +2,7 @@
 
 return [
     'actions' => [
-        'store_success' => '添加收藏成功!',
-        'delete_success' => '取消收藏成功!',
+        'store_success' => '成功添加到收藏夹啦！',
+        'delete_success' => '成功取消收藏哦！',
     ]
 ];

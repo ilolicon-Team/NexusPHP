@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'label' => '勋章',
-    'action_wearing' => '佩戴',
+    'label' => '可爱勋章',
+    'action_wearing' => '戴上',
     'admin' => [
         'list' => [
             'page_title' => '勋章列表'
@@ -15,7 +15,7 @@ return [
     'fields' => [
         'get_type' => '获取方式',
         'description' => '描述',
-        'image_large' => '图片',
+        'image_large' => '可爱图片',
         'price' => '价格',
         'duration' => '购买后有效期(天)',
         'sale_begin_time' => '上架开始时间',
@@ -26,8 +26,8 @@ return [
         'inventory_help' => '留空表示无限',
         'sale_begin_end_time' => '可购买时间',
         'users_count' => '已售数量',
-        'bonus_addition_factor' => '魔力加成系数',
-        'bonus_addition' => '魔力加成',
+        'bonus_addition_factor' => '可爱加成系数',
+        'bonus_addition' => '可爱加成',
         'bonus_addition_factor_help' => '如：0.01 表示 1% 的加成，留空无加成',
         'gift_fee_factor' => '赠送手续费系数',
         'gift_fee' => '手续费',
@@ -36,14 +36,14 @@ return [
     'buy_already' => '已经购买',
     'buy_btn' => '购买',
     'confirm_to_buy' => '确定要购买吗？',
-    'require_more_bonus' => '需要更多魔力值',
+    'require_more_bonus' => '需要更多可爱值',
     'grant_only' => '仅授予',
     'before_sale_begin_time' => '未到可购买时间',
     'after_sale_end_time' => '已过可购买时间',
     'inventory_empty' => '库存不足',
     'gift_btn' => '赠送',
     'confirm_to_gift' => '确定要赠送给用户 ',
-    'max_allow_wearing' => '最多允许同时佩戴 :count 个勋章',
+    'max_allow_wearing' => '最多允许同时佩戴 :count 个可爱勋章',
     'wearing_status_text' => [
         0 => '未佩戴',
         1 => '已佩戴'

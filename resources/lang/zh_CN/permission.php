@@ -3,7 +3,7 @@
 return [
     'torrent-approval' => [
         'text' => '审核种子',
-        'desc' => '通过种子、拒绝种子、或将种子标记为未审',
+        'desc' => '通过种子、拒绝种子，或将种子标记为未审',
     ],
     'torrent-set-special-tag' => [
         'text' => '设定种子特殊标签',
@@ -15,7 +15,7 @@ return [
     ],
     'torrent-set-price' => [
         'text' => '设置种子收费',
-        'desc' => '设置种子收费',
+        'desc' => '设置种子的收费',
     ],
     'defaultclass' => [
         'text' => '默认等级',
