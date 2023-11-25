@@ -14,12 +14,12 @@ class AgentAllowedFamilyTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('agent_allowed_family')->delete();
-        
+
         \DB::table('agent_allowed_family')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 1,
                 'family' => 'Azureus 2.5.0.4',
@@ -37,7 +37,7 @@ class AgentAllowedFamilyTableSeeder extends Seeder
                 'comment' => '',
                 'hits' => 0,
             ),
-            1 => 
+            1 =>
             array (
                 'id' => 2,
                 'family' => 'uTorrent 1.6.1',
@@ -55,7 +55,7 @@ class AgentAllowedFamilyTableSeeder extends Seeder
                 'comment' => '',
                 'hits' => 0,
             ),
-            2 => 
+            2 =>
             array (
                 'id' => 3,
                 'family' => 'Bittorrent 6.x',
@@ -73,7 +73,7 @@ class AgentAllowedFamilyTableSeeder extends Seeder
                 'comment' => '',
                 'hits' => 0,
             ),
-            3 => 
+            3 =>
             array (
                 'id' => 4,
                 'family' => 'Deluge 0.x',
@@ -91,7 +91,7 @@ class AgentAllowedFamilyTableSeeder extends Seeder
                 'comment' => '',
                 'hits' => 0,
             ),
-            4 => 
+            4 =>
             array (
                 'id' => 5,
                 'family' => 'Transmission1.x',
@@ -109,7 +109,7 @@ class AgentAllowedFamilyTableSeeder extends Seeder
                 'comment' => '',
                 'hits' => 0,
             ),
-            5 => 
+            5 =>
             array (
                 'id' => 6,
             'family' => 'RTorrent 0.x(with libtorrent 0.x)',
@@ -127,7 +127,7 @@ class AgentAllowedFamilyTableSeeder extends Seeder
                 'comment' => '',
                 'hits' => 0,
             ),
-            6 => 
+            6 =>
             array (
                 'id' => 7,
                 'family' => 'Rufus 0.x',
@@ -145,7 +145,7 @@ class AgentAllowedFamilyTableSeeder extends Seeder
                 'comment' => '',
                 'hits' => 0,
             ),
-            7 => 
+            7 =>
             array (
                 'id' => 8,
                 'family' => 'Azureus 3.x',
@@ -163,7 +163,7 @@ class AgentAllowedFamilyTableSeeder extends Seeder
                 'comment' => '',
                 'hits' => 0,
             ),
-            8 => 
+            8 =>
             array (
                 'id' => 9,
                 'family' => 'uTorrent 1.7.x',
@@ -181,7 +181,7 @@ class AgentAllowedFamilyTableSeeder extends Seeder
                 'comment' => '',
                 'hits' => 0,
             ),
-            9 => 
+            9 =>
             array (
                 'id' => 10,
                 'family' => 'BitRocket 0.x',
@@ -199,7 +199,7 @@ class AgentAllowedFamilyTableSeeder extends Seeder
                 'comment' => '',
                 'hits' => 0,
             ),
-            10 => 
+            10 =>
             array (
                 'id' => 11,
                 'family' => 'MLDonkey 2.9.x',
@@ -217,7 +217,7 @@ class AgentAllowedFamilyTableSeeder extends Seeder
                 'comment' => '',
                 'hits' => 0,
             ),
-            11 => 
+            11 =>
             array (
                 'id' => 12,
                 'family' => 'uTorrent 1.8.x',
@@ -235,7 +235,7 @@ class AgentAllowedFamilyTableSeeder extends Seeder
                 'comment' => '',
                 'hits' => 0,
             ),
-            12 => 
+            12 =>
             array (
                 'id' => 13,
                 'family' => 'Azureus 4.x',
@@ -253,7 +253,7 @@ class AgentAllowedFamilyTableSeeder extends Seeder
                 'comment' => '',
                 'hits' => 0,
             ),
-            13 => 
+            13 =>
             array (
                 'id' => 14,
                 'family' => 'SymTorrent',
@@ -271,7 +271,7 @@ class AgentAllowedFamilyTableSeeder extends Seeder
                 'comment' => '',
                 'hits' => 0,
             ),
-            14 => 
+            14 =>
             array (
                 'id' => 15,
                 'family' => 'Deluge 1.x',
@@ -289,7 +289,7 @@ class AgentAllowedFamilyTableSeeder extends Seeder
                 'comment' => '',
                 'hits' => 0,
             ),
-            15 => 
+            15 =>
             array (
                 'id' => 16,
                 'family' => 'uTorrent 1.8xB',
@@ -307,7 +307,7 @@ class AgentAllowedFamilyTableSeeder extends Seeder
                 'comment' => '',
                 'hits' => 0,
             ),
-            16 => 
+            16 =>
             array (
                 'id' => 17,
                 'family' => 'uTorrent 2.x.x',
@@ -325,7 +325,7 @@ class AgentAllowedFamilyTableSeeder extends Seeder
                 'comment' => '',
                 'hits' => 0,
             ),
-            17 => 
+            17 =>
             array (
                 'id' => 18,
                 'family' => 'Transmission2.x',
@@ -343,7 +343,7 @@ class AgentAllowedFamilyTableSeeder extends Seeder
                 'comment' => '',
                 'hits' => 0,
             ),
-            18 => 
+            18 =>
             array (
                 'id' => 19,
                 'family' => 'uTorrent 3.x',
@@ -361,7 +361,7 @@ class AgentAllowedFamilyTableSeeder extends Seeder
                 'comment' => '',
                 'hits' => 0,
             ),
-            19 => 
+            19 =>
             array (
                 'id' => 20,
                 'family' => 'uTorrent 3.x',
@@ -379,7 +379,7 @@ class AgentAllowedFamilyTableSeeder extends Seeder
                 'comment' => '',
                 'hits' => 0,
             ),
-            20 => 
+            20 =>
             array (
                 'id' => 21,
                 'family' => 'Transmission3.x',
@@ -397,7 +397,7 @@ class AgentAllowedFamilyTableSeeder extends Seeder
                 'comment' => '',
                 'hits' => 0,
             ),
-            21 => 
+            21 =>
             array (
                 'id' => 22,
                 'family' => 'Deluge 2.x',
@@ -415,7 +415,7 @@ class AgentAllowedFamilyTableSeeder extends Seeder
                 'comment' => '',
                 'hits' => 0,
             ),
-            22 => 
+            22 =>
             array (
                 'id' => 23,
                 'family' => 'qBittorrent 4.x',
@@ -433,7 +433,7 @@ class AgentAllowedFamilyTableSeeder extends Seeder
                 'comment' => '',
                 'hits' => 0,
             ),
-            23 => 
+            23 =>
             array (
                 'id' => 24,
                 'family' => 'Deluge 1.x',
@@ -451,8 +451,98 @@ class AgentAllowedFamilyTableSeeder extends Seeder
                 'comment' => '',
                 'hits' => 0,
             ),
+            24 =>
+            array (
+                'id' => 25,
+                'family' => 'Transmission4.x',
+                'start_name' => 'Transmission 4.0.0',
+            'peer_id_pattern' => '/^-TR4([0-9])([0-9])([0-9])-/',
+                'peer_id_match_num' => 3,
+                'peer_id_matchtype' => 'dec',
+                'peer_id_start' => '-TR4000-',
+            'agent_pattern' => '/^Transmission\/4\.([0-9])\.([0-9])/',
+                'agent_match_num' => 3,
+                'agent_matchtype' => 'dec',
+                'agent_start' => 'Transmission/4.00',
+                'exception' => 'no',
+                'allowhttps' => 'yes',
+                'comment' => '',
+                'hits' => 0,
+            ),
+            25 =>
+            array (
+                'id' => 26,
+                'family' => 'rtorrent 0.9',
+                'start_name' => 'rtorrent 0.9.8',
+            'peer_id_pattern' => '/^-lt([0-9])([0-9A-Z])([0-9])([0-9])-',
+                'peer_id_match_num' => 4,
+                'peer_id_matchtype' => 'dec',
+                'peer_id_start' => '-lt0000-',
+            'agent_pattern' => '/^rtorrent\\/([0-9])\\.([0-9])\\.([0-9])/',
+                'agent_match_num' => 3,
+                'agent_matchtype' => 'dec',
+                'agent_start' => 'rtorrent/0.0.0',
+                'exception' => 'no',
+                'allowhttps' => 'yes',
+                'comment' => '',
+                'hits' => 0,
+            ),
+            26 =>
+            array (
+                'id' => 27,
+                'family' => 'tTorrent 1.6',
+                'start_name' => 'tTorrent 1.6.0',
+            'peer_id_pattern' => '/^-tT1([6-9])([0-9])([0-9])-/',
+                'peer_id_match_num' => 3,
+                'peer_id_matchtype' => 'dec',
+                'peer_id_start' => '-tT1600-',
+            'agent_pattern' => '/^tTorrent v1\\.([6-9])\\.([0-9])/',
+                'agent_match_num' => 2,
+                'agent_matchtype' => 'dec',
+                'agent_start' => 'tTorrent v1.6.0',
+                'exception' => 'no',
+                'allowhttps' => 'yes',
+                'comment' => '',
+                'hits' => 0,
+            ),
+            27 =>
+            array (
+                'id' => 28,
+                'family' => 'libtorrent 2.00',
+                'start_name' => 'libtorrent 2.0.7.0',
+            'peer_id_pattern' => '/^-LT2([0-9])([0-9A-Z])([0-9])-/',
+                'peer_id_match_num' => 3,
+                'peer_id_matchtype' => 'dec',
+                'peer_id_start' => '-LT2070-',
+            'agent_pattern' => '/^libtorrent\\/2\\.([0-9])\\.([0-9]+)\\.([0-9])/',
+                'agent_match_num' => 2,
+                'agent_matchtype' => 'dec',
+                'agent_start' => 'libtorrent/2.0.7.0',
+                'exception' => 'no',
+                'allowhttps' => 'yes',
+                'comment' => '',
+                'hits' => 0,
+            ),
+            28 =>
+            array (
+                'id' => 29,
+                'family' => 'uTorrent 3.6',
+                'start_name' => 'uTorrent 3.6.0',
+            'peer_id_pattern' => '/^-UT36[0-9][0-9A-Za-z]-/',
+                'peer_id_match_num' => 2,
+                'peer_id_matchtype' => 'dec',
+                'peer_id_start' => '-UT3600-',
+            'agent_pattern' => '/^uTorrent\\/36([0-9])/',
+                'agent_match_num' => 1,
+                'agent_matchtype' => 'dec',
+                'agent_start' => 'uTorrent/360',
+                'exception' => 'no',
+                'allowhttps' => 'yes',
+                'comment' => '',
+                'hits' => 0,
+            ),
         ));
-        
-        
+
+
     }
 }
