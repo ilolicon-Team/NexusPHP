@@ -20,3 +20,15 @@ if (!defined('RUNNING_IN_OCTANE')) {
     }
     define('RUNNING_IN_OCTANE', $runningInOctane);
 }
+
+// ilolicon PT
+defined('ILOLICON_VERSION_NUMBER') || define('ILOLICON_VERSION_NUMBER', '1.0.0');
+defined('ILOLICON_RELEASE_DATE') || define('ILOLICON_RELEASE_DATE', '2023-11-25');
+defined('ILOLICON_IN_TRACKER') || define('ILOLICON_IN_TRACKER', false);
+defined('ILOLICON_PROJECTNAME') || define("ILOLICON_PROJECTNAME","ilolicon PT");
+defined('ILOLICON_NEXUSPHPURL') || define("ILOLICON_NEXUSPHPURL","https://share.ilolicon.com");
+defined('ILOLICON_VERSION') || define("ILOLICON_VERSION","Powered by <a href=\"aboutilolicon.php\">".PROJECTNAME."</a>");
+defined('ILOLICON_THISTRACKER') || define("ILOLICON_THISTRACKER","General");
+defined('ILOLICON_CONTENT_WIDTH') || define("ILOLICON_CONTENT_WIDTH", 1200);
+defined('ILOLICON_ROOT_PATH') || define('ILOLICON_ROOT_PATH', dirname(__DIR__) . '/');
+defined('ILOLICON_DEFAULT_TRACKER_URI') || define('ILOLICON_DEFAULT_TRACKER_URI', '/announce.php');
