@@ -2,16 +2,16 @@
 
 $lang_delete = array
 (
-	'std_delete_failed' => "删除失败！",
-	'std_missing_form_date' => "有项目未填",
-	'std_not_owner' => "你不是发种者！你怎么会来这？\n",
-	'std_invalid_reason' => "无效的理由",
-	'std_describe_violated_rule' => "请填写具体违反的规则。",
-	'std_enter_reason' => "请填写删除该种子的原因。",
-	'head_torrent_deleted' => "成功删除种子！",
+	'std_delete_failed' => "啊哦，删除失败啦！",
+	'std_missing_form_date' => "哎呀，有些地方没填哦",
+	'std_not_owner' => "喂喂，你可不是发种者哦！怎么会跑到这里来了？\n",
+	'std_invalid_reason' => "嗯？理由好像有点问题",
+	'std_describe_violated_rule' => "快说说是哪个规矩被违反了。",
+	'std_enter_reason' => "别忘了告诉我们为什么要删除这个种子哦。",
+	'head_torrent_deleted' => "成功删除种子啦！",
 	'text_go_back' => "回到刚才的地方",
 	'text_back_to_index' => "返回首页",
-	'text_torrent_deleted' => "成功删除种子！",
+	'text_torrent_deleted' => "好耶，成功删除种子啦！",
 );
 
 ?>
