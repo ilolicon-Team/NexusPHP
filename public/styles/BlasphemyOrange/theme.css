@@ -543,6 +543,8 @@ ul.menu li a
 ul.menu li a:link
 {
 	color: #2d2b2b;
+	vertical-align: top;
+        height: 18px;
 }
 ul.menu li a:visited
 {

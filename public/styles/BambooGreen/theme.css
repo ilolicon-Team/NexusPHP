@@ -497,6 +497,8 @@ ul.menu li a
 ul.menu li a:link
 {
 	color: #ffffff;
+	vertical-align: top;
+	height: 18px;
 }
 ul.menu li a:visited
 {
