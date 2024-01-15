@@ -2293,7 +2293,11 @@ function menu ($selected = "home") {
 		$selected = "home";
 	}elseif (preg_match("/forums/i", $script_name)) {
 		$selected = "forums";
-	}elseif (preg_match("/torrents/i", $script_name)) {
+	}elseif (preg_match("/torrents.php\?tag_id=8/i", $_SERVER['REQUEST_URI'])) {
+		$selected = "9kg";
+	}elseif (preg_match("/torrents.php\?tag_id=11/i", $_SERVER['REQUEST_URI'])) {
+		$selected = "loli";
+    }elseif (preg_match("/torrents/i", $script_name)) {
 		$selected = "torrents";
 	}elseif (preg_match("/special/i", $script_name)) {
 		$selected = "special";
@@ -2317,10 +2321,6 @@ function menu ($selected = "home") {
 		$selected = "faq";
     }elseif (preg_match("/contactstaff/i", $script_name)) {
         $selected = "contactstaff";
-    }elseif (preg_match("/torrents.php\?tag_id=8/i", $_SERVER['REQUEST_URI'])) {
-		$selected = "9kg";
-	}elseif (preg_match("/torrents.php\?tag_id=11/i", $_SERVER['REQUEST_URI'])) {
-		$selected = "loli";
     }elseif (preg_match("/staff/i", $script_name)) {
         $selected = "staff";
 	}else
