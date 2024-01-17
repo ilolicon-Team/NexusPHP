@@ -1,0 +1,49 @@
+{
+    "name": "dragon-code/pretty-array",
+    "description": "Simple conversion of an array to a pretty view",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["pretty array", "pretty", "array", "dragon code", "dragon", "andrey helldar"],
+    "support": {
+        "issues": "https://github.com/TheDragonCode/pretty-array/issues",
+        "source": "https://github.com/TheDragonCode/pretty-array"
+    },
+    "authors": [
+        {
+            "name": "Andrey Helldar",
+            "email": "helldar@ai-rus.com"
+        }
+    ],
+    "require": {
+        "php": "^7.3|^8.0",
+        "ext-dom": "*",
+        "ext-mbstring": "*",
+        "dragon-code/contracts": "^2.6",
+        "dragon-code/support": "^5.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
+    "conflict": {
+        "andrey-helldar/pretty-array": "*"
+    },
+    "suggest": {
+        "symfony/thanks": "Give thanks (in the form of a GitHub) to your fellow PHP package maintainers"
+    },
+    "autoload": {
+        "psr-4": {
+            "DragonCode\\PrettyArray\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests"
+        }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
