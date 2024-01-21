@@ -909,10 +909,21 @@ $where .= ($where ? " AND " : "") . "audiocodec IN(" . $whereaudiocodecin . ")";
 }
 
 $tagFilter = "";
-$tagId = intval($_REQUEST['tag_id'] ?? 0);
-if ($tagId > 0) {
-    $tagFilter = " inner join torrent_tags on torrents.id = torrent_tags.torrent_id and torrent_tags.tag_id = $tagId ";
-    $addparam .= "tag_id={$tagId}&";
+$tagIds = array_unique(array_map('intval', explode(',', ($_REQUEST['tag_id'] ?? ''))));
+$tagIdsCount = (count($tagIds) > 0);
+$tagIdsStr = '';
+if ($tagIdsCount) {
+	foreach ($tagIds as $tagId) {
+		if ($tagId <= 0) {
+			continue;
+		}
+		$tagIdsStr .= "{$tagId},";
+		$where .= " AND (SELECT 1 FROM torrent_tags WHERE torrent_tags.torrent_id = torrents.id AND tag_id = {$tagId} LIMIT 1) ";
+	}
+	if (!empty($tagIdsStr)) {
+		$tagIdsStr = rtrim($tagIdsStr, ',');
+		$addparam .= "tag_id={$tagIdsStr}&";
+	}
 }
 if ($allsec == 1 || $enablespecial != 'yes')
 {
@@ -920,7 +931,7 @@ if ($allsec == 1 || $enablespecial != 'yes')
 		$where = "WHERE $where ";
 	else $where = "";
 	$sql = "SELECT COUNT(*) FROM torrents " . ($search_area == 3 || $column == "owner" ? "LEFT JOIN users ON torrents.owner = users.id " : "") . $tagFilter . $where;
-	if ($tagId != 8) {
+	if (!in_array(8, $tagIds)) {
         $where .= "AND torrents.id NOT IN (
             SELECT torrent_id FROM torrent_tags WHERE tag_id = 8
         ) ";
@@ -1259,7 +1270,35 @@ if (!$Cache->get_page()){
 echo $Cache->next_row();
 
 if ($allTags->isNotEmpty()) {
-    echo '<tr><td colspan="3" class="embedded" style="padding-top: 4px">' . $tagRep->renderSpan($sectiontype, ['*'], true) . '</td></tr>';
+	$html = '';
+	$allTags->each(function ($curTag) use (&$html, $tagIds) {
+        $idLinkStr = '';
+        $hasSelf = false;
+    	foreach ($tagIds as $tagId) {
+    		if ($tagId <= 0) {
+    			continue;
+    		}
+    		if ($curTag->id === $tagId) {
+    			$hasSelf = true;
+    			continue;
+    		}
+    		$idLinkStr .= "{$tagId},";
+    	}
+    	if (!$hasSelf) {
+    		$idLinkStr .= "{$curTag->id}";
+    	}
+		$idLinkStr = rtrim($idLinkStr, ',');
+		$item = sprintf(
+            "<span style=\"background-color:%s;color:%s;border-radius:%s;font-size:%s;margin:%s;padding:%s;opacity:%s;\" title=\"%s\">%s</span>",
+            $curTag->color, $curTag->font_color, $curTag->border_radius, $curTag->font_size, $curTag->margin, $curTag->padding, ($hasSelf ? '1' : '0.5'), $curTag->description, $curTag->name
+        );
+		if (empty($idLinkStr)) {
+			$html .= sprintf('<a href="?">%s</a>', $item);
+		} else {
+			$html .= sprintf('<a href="?tag_id=%s">%s</a>', $idLinkStr, $item);
+		}
+	});
+	echo '<tr><td colspan="3" class="embedded" style="padding-top: 4px">' . $html . '</td></tr>';
 }
 
 ?>
