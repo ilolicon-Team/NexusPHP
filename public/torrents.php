@@ -1202,6 +1202,11 @@ if ($allsec != 1 || $enablespecial != 'yes'){ //do not print searchbox if showin
 			<td class="rowfollow" align="center">
 				<table>
 					<tr>
+						<?php
+						if (!empty($tagIdsStr)) {
+							echo '<input type="hidden" name="tag_id" type="text" value="' . $tagIdsStr . '" />';
+						}
+						?>
 						<td class="embedded">
 							<?php echo $lang_torrents['text_search'] ?>&nbsp;&nbsp;
 						</td>
