@@ -932,10 +932,8 @@ if ($allsec == 1 || $enablespecial != 'yes')
 	else $where = "";
 	$sql = "SELECT COUNT(*) FROM torrents " . ($search_area == 3 || $column == "owner" ? "LEFT JOIN users ON torrents.owner = users.id " : "") . $tagFilter . $where;
 	if (!in_array(8, $tagIds)) {
-        $where .= "AND torrents.id NOT IN (
-            SELECT torrent_id FROM torrent_tags WHERE tag_id = 8
-        ) ";
-    }
+		$where .= "AND (SELECT 1 FROM torrent_tags WHERE torrent_tags.torrent_id = torrents.id AND tag_id = 8 LIMIT 1) IS NULL";
+	}
 }
 else
 {
