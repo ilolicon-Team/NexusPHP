@@ -2,18 +2,10 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Telegram extends NexusModel
+class Telegram extends Model
 {
-    protected $fillable = ['userid', 'telegramid'];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'userid');
-    }
-
-    public function telegramid()
-    {
-        return $this->belongsTo(User::class, 'telegramid');
-    }
+    use HasFactory;
 }
