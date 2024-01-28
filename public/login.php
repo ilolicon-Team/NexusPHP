@@ -46,6 +46,9 @@ if (!empty($_GET["returnto"])) {
 	}
 } // ------------------ NexusPHP ------------------
 ?>
+<head>
+    <title><?php echo htmlspecialchars($SITENAME)?> | Login</title>
+</head>
     <link href="/lagom/theme.css?v=1.4.3" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/lagom/fontawesome-all.min.css" />
 
