@@ -2,9 +2,9 @@
 
 function get_global_sp_state()
 {
-	static $global_promotion_state;
-	$cacheKey = \App\Models\Setting::TORRENT_GLOBAL_STATE_CACHE_KEY;
-	if (!$global_promotion_state) {
+    static $global_promotion_state;
+    $cacheKey = \App\Models\Setting::TORRENT_GLOBAL_STATE_CACHE_KEY;
+    if (!$global_promotion_state) {
         $row = \Nexus\Database\NexusDB::remember($cacheKey, 600, function () use ($cacheKey) {
             return \Nexus\Database\NexusDB::getOne('torrents_state', 1);
         });
@@ -19,77 +19,77 @@ function get_global_sp_state()
         } else {
             $global_promotion_state = $row;
         }
-	}
-	return $global_promotion_state;
+    }
+    return $global_promotion_state;
 }
 
 // IP Validation
 function validip($ip)
 {
-	if (!ip2long($ip)) //IPv6
-		return true;
-	if (!empty($ip) && $ip == long2ip(ip2long($ip)))
-	{
-		// reserved IANA IPv4 addresses
-		// http://www.iana.org/assignments/ipv4-address-space
-		$reserved_ips = array (
-		array('192.0.2.0','192.0.2.255'),
-		array('192.168.0.0','192.168.255.255'),
-		array('255.255.255.0','255.255.255.255')
-		);
+    if (!ip2long($ip)) //IPv6
+        return true;
+    if (!empty($ip) && $ip == long2ip(ip2long($ip)))
+    {
+        // reserved IANA IPv4 addresses
+        // http://www.iana.org/assignments/ipv4-address-space
+        $reserved_ips = array (
+        array('192.0.2.0','192.0.2.255'),
+        array('192.168.0.0','192.168.255.255'),
+        array('255.255.255.0','255.255.255.255')
+        );
 
-		foreach ($reserved_ips as $r)
-		{
-			$min = ip2long($r[0]);
-			$max = ip2long($r[1]);
-			if ((ip2long($ip) >= $min) && (ip2long($ip) <= $max)) return false;
-		}
-		return true;
-	}
-	else return false;
+        foreach ($reserved_ips as $r)
+        {
+            $min = ip2long($r[0]);
+            $max = ip2long($r[1]);
+            if ((ip2long($ip) >= $min) && (ip2long($ip) <= $max)) return false;
+        }
+        return true;
+    }
+    else return false;
 }
 
 function getip() {
-	if (isset($_SERVER)) {
-		if (isset($_SERVER['HTTP_X_FORWARDED_FOR']) && validip($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-			$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-		} elseif (isset($_SERVER['HTTP_CLIENT_IP']) && validip($_SERVER['HTTP_CLIENT_IP'])) {
-			$ip = $_SERVER['HTTP_CLIENT_IP'];
-		} else {
-			$ip = $_SERVER['REMOTE_ADDR'] ?? '';
-		}
-	} else {
-		if (getenv('HTTP_X_FORWARDED_FOR') && validip(getenv('HTTP_X_FORWARDED_FOR'))) {
-			$ip = getenv('HTTP_X_FORWARDED_FOR');
-		} elseif (getenv('HTTP_CLIENT_IP') && validip(getenv('HTTP_CLIENT_IP'))) {
-			$ip = getenv('HTTP_CLIENT_IP');
-		} else {
-			$ip = getenv('REMOTE_ADDR') ?? '';
-		}
-	}
+    if (isset($_SERVER)) {
+        if (isset($_SERVER['HTTP_X_FORWARDED_FOR']) && validip($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        } elseif (isset($_SERVER['HTTP_CLIENT_IP']) && validip($_SERVER['HTTP_CLIENT_IP'])) {
+            $ip = $_SERVER['HTTP_CLIENT_IP'];
+        } else {
+            $ip = $_SERVER['REMOTE_ADDR'] ?? '';
+        }
+    } else {
+        if (getenv('HTTP_X_FORWARDED_FOR') && validip(getenv('HTTP_X_FORWARDED_FOR'))) {
+            $ip = getenv('HTTP_X_FORWARDED_FOR');
+        } elseif (getenv('HTTP_CLIENT_IP') && validip(getenv('HTTP_CLIENT_IP'))) {
+            $ip = getenv('HTTP_CLIENT_IP');
+        } else {
+            $ip = getenv('REMOTE_ADDR') ?? '';
+        }
+    }
 
-	return $ip;
+    return $ip;
 }
 
 function sql_query($query)
 {
-	$begin = microtime(true);
-	global $query_name;
-	$result = mysql_query($query);
-	$end = microtime(true);
-	$query_name[] = [
-		'query' => $query,
-		'time' => sprintf('%.3f ms', ($end - $begin) * 1000),
-	];
-	return $result;
+    $begin = microtime(true);
+    global $query_name;
+    $result = mysql_query($query);
+    $end = microtime(true);
+    $query_name[] = [
+        'query' => $query,
+        'time' => sprintf('%.3f ms', ($end - $begin) * 1000),
+    ];
+    return $result;
 }
 
 function sqlesc($value) {
-	if (is_null($value)) {
-		return 'null';
-	}
-	$value = "'" . mysql_real_escape_string($value) . "'";
-	return $value;
+    if (is_null($value)) {
+        return 'null';
+    }
+    $value = "'" . mysql_real_escape_string($value) . "'";
+    return $value;
 }
 
 function hash_pad($hash) {
@@ -97,9 +97,9 @@ function hash_pad($hash) {
 }
 
 function hash_where($name, $hash) {
-//	$shhash = preg_replace('/ *$/s', "", $hash);
-//	return "($name = " . sqlesc($hash) . " OR $name = " . sqlesc($shhash) . ")";
-//	return sprintf("$name in (%s, %s)", sqlesc($hash), sqlesc($shhash));
+//  $shhash = preg_replace('/ *$/s', "", $hash);
+//  return "($name = " . sqlesc($hash) . " OR $name = " . sqlesc($shhash) . ")";
+//  return sprintf("$name in (%s, %s)", sqlesc($hash), sqlesc($shhash));
     return "$name = " . sqlesc($hash);
 }
 
@@ -107,44 +107,44 @@ function hash_where($name, $hash) {
 /*
 function strip_magic_quotes($arr)
 {
-	foreach ($arr as $k => $v)
-	{
-		if (is_array($v))
-		{
-			$arr[$k] = strip_magic_quotes($v);
-		} else {
-			$arr[$k] = stripslashes($v);
-		}
-	}
-	return $arr;
+    foreach ($arr as $k => $v)
+    {
+        if (is_array($v))
+        {
+            $arr[$k] = strip_magic_quotes($v);
+        } else {
+            $arr[$k] = stripslashes($v);
+        }
+    }
+    return $arr;
 }
 
 if (function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc())
 {
-	if (!empty($_GET)) {
-		$_GET = strip_magic_quotes($_GET);
-	}
-	if (!empty($_POST)) {
-		$_POST = strip_magic_quotes($_POST);
-	}
-	if (!empty($_COOKIE)) {
-		$_COOKIE = strip_magic_quotes($_COOKIE);
-	}
+    if (!empty($_GET)) {
+        $_GET = strip_magic_quotes($_GET);
+    }
+    if (!empty($_POST)) {
+        $_POST = strip_magic_quotes($_POST);
+    }
+    if (!empty($_COOKIE)) {
+        $_COOKIE = strip_magic_quotes($_COOKIE);
+    }
 }
 */
 
 function get_langfolder_list()
 {
-	//do not access db for speed up, or for flexibility
-	return array("en", "chs", "cht", "ko", "ja");
+    //do not access db for speed up, or for flexibility
+    return array("en", "chs", "cht", "ko", "ja");
 }
 
 function printLine($line, $exist = false)
 {
-	echo "[" . date('Y-m-d H:i:s') . "] $line<br />";
-	if ($exist) {
-		exit(0);
-	}
+    echo "[" . date('Y-m-d H:i:s') . "] $line<br />";
+    if ($exist) {
+        exit(0);
+    }
 }
 
 function nexus_dd($vars)
@@ -185,11 +185,11 @@ function do_log($log, $level = 'info', $echo = false)
     }
 
     $logFile = getLogFile();
-	if (($fd = fopen($logFile, 'a')) === false) {
-	    $log .= "--------Can not open $logFile";
+    if (($fd = fopen($logFile, 'a')) === false) {
+        $log .= "--------Can not open $logFile";
         $fd = fopen(sys_get_temp_dir() . '/nexus.log', 'a');
-	}
-	$uid = 0;
+    }
+    $uid = 0;
     if (IN_NEXUS) {
         global $CURUSER;
         $user = $CURUSER;
@@ -274,10 +274,11 @@ function nexus_config($key, $default = null)
     static $configs;
     if (is_null($configs)) {
         //get all configuration from config file
-//		$files = glob(ROOT_PATH . 'config/*.php');
+//      $files = glob(ROOT_PATH . 'config/*.php');
         $files = [
             ROOT_PATH . 'config/nexus.php',
             ROOT_PATH . 'config/emoji.php',
+            ROOT_PATH . 'config/ext_font_lib.php',
         ];
         foreach ($files as $file) {
             $basename = basename($file);
@@ -304,15 +305,15 @@ function nexus_config($key, $default = null)
  */
 function get_setting($name = null, $default = null): mixed
 {
-	static $settings;
-	if (is_null($settings)) {
+    static $settings;
+    if (is_null($settings)) {
         $settings = \Nexus\Database\NexusDB::remember("nexus_settings_in_nexus", 600, function () {
             //get all settings from database
             return \App\Models\Setting::getFromDb();
         });
-	}
-	if (is_null($name)) {
-	    return $settings;
+    }
+    if (is_null($name)) {
+        return $settings;
     }
     return arr_get($settings, $name, $default);
 }
@@ -377,24 +378,24 @@ function readEnvFile($envFile)
 
 function normalize_env($value)
 {
-	$value = trim($value);
-	$toStrip = ['\'', '"'];
-	if (in_array(mb_substr($value, 0, 1, 'utf-8'), $toStrip)) {
-		$value = mb_substr($value, 1, null, 'utf-8');
-	}
-	if (in_array(mb_substr($value, -1, null,'utf-8'), $toStrip)) {
-		$value = mb_substr($value, 0, -1, 'utf-8');
-	}
-	switch (strtolower($value)) {
-		case 'true':
-			return true;
-		case 'false':
-			return false;
-		case 'null':
-			return null;
-		default:
-			return $value;
-	}
+    $value = trim($value);
+    $toStrip = ['\'', '"'];
+    if (in_array(mb_substr($value, 0, 1, 'utf-8'), $toStrip)) {
+        $value = mb_substr($value, 1, null, 'utf-8');
+    }
+    if (in_array(mb_substr($value, -1, null,'utf-8'), $toStrip)) {
+        $value = mb_substr($value, 0, -1, 'utf-8');
+    }
+    switch (strtolower($value)) {
+        case 'true':
+            return true;
+        case 'false':
+            return false;
+        case 'null':
+            return null;
+        default:
+            return $value;
+    }
 }
 
 /**
@@ -410,17 +411,17 @@ function normalize_env($value)
  */
 function arr_get($array, $key, $default = null)
 {
-	if (strpos($key, '.') === false) {
-		return $array[$key] ?? $default;
-	}
-	foreach (explode('.', $key) as $segment) {
-		if (isset($array[$segment])) {
-			$array = $array[$segment];
-		} else {
-			return $default;
-		}
-	}
-	return $array;
+    if (strpos($key, '.') === false) {
+        return $array[$key] ?? $default;
+    }
+    foreach (explode('.', $key) as $segment) {
+        if (isset($array[$segment])) {
+            $array = $array[$segment];
+        } else {
+            return $default;
+        }
+    }
+    return $array;
 }
 
 /**
@@ -741,20 +742,20 @@ function get_user_row($id)
         return apply_filter("user_row", $arr);
     });
 
-//	if ($CURUSER && $id == $CURUSER['id']) {
-//		$row = array();
-//		foreach($neededColumns as $column) {
-//			$row[$column] = $CURUSER[$column];
-//		}
-//		if (!$curuserRowUpdated) {
-//			$Cache->cache_value('user_'.$CURUSER['id'].'_content', $row, 900);
-//			$curuserRowUpdated = true;
-//		}
-//	} elseif (!$row = $Cache->get_value('user_'.$id.'_content')){
-//		$res = sql_query("SELECT ".implode(',', $neededColumns)." FROM users WHERE id = ".sqlesc($id)) or sqlerr(__FILE__,__LINE__);
-//		$row = mysql_fetch_array($res);
-//		$Cache->cache_value('user_'.$id.'_content', $row, 900);
-//	}
+//  if ($CURUSER && $id == $CURUSER['id']) {
+//      $row = array();
+//      foreach($neededColumns as $column) {
+//          $row[$column] = $CURUSER[$column];
+//      }
+//      if (!$curuserRowUpdated) {
+//          $Cache->cache_value('user_'.$CURUSER['id'].'_content', $row, 900);
+//          $curuserRowUpdated = true;
+//      }
+//  } elseif (!$row = $Cache->get_value('user_'.$id.'_content')){
+//      $res = sql_query("SELECT ".implode(',', $neededColumns)." FROM users WHERE id = ".sqlesc($id)) or sqlerr(__FILE__,__LINE__);
+//      $row = mysql_fetch_array($res);
+//      $Cache->cache_value('user_'.$id.'_content', $row, 900);
+//  }
 
     if (!$row)
         return false;
