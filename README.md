@@ -50,16 +50,16 @@ ilolicon PT的源码 完全基于xiaomlove/nexusphp （未来也不一定会改
 docker pull xiaomlove/nexusphp:latest
 docker run --name my-nexusphp -e DOMAIN=xxx.com -p 80:80 xiaomlove/nexusphp:latest
 ```
-**生产环境建议参考文档实机安装。**
+**生产环境建议参考文档实机安装。**  
 **~~都说了是分支，所以这个一点都没动哦~~**
 
 ## 更多信息
-ilolicon: [https://share.ilolicon.com](https://share.ilolicon.com) 
+ilolicon: [https://share.ilolicon.com](https://share.ilolicon.com)  
 博客：[https://nexusphp.org](http://nexusphp.org/)  
 文档：[https://doc.nexusphp.org](http://doc.nexusphp.org/)  
 Telegram: [https://t.me/nexusphp](https://t.me/nexusphp)  
 
-## 完全没有赞助商.jpg
-## Project supported by JetBrains
+## 完全没有赞助商.jpg   
+## Project supported by JetBrains   
 Many thanks to Jetbrains for kindly providing a license for me to work on this and other open-source projects.  
 [![](https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.svg)](https://www.jetbrains.com/?from=https://github.com/xiaomlove/nexusphp)

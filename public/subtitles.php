@@ -378,8 +378,12 @@ if(get_user_class() >= UC_PEASANT)
 		{
 			// the number $start_subid is just for legacy support of prevoiusly uploaded subs, if the site is completely new, it should be 0 or just remove it
 			$lang = "<td class=rowfollow align=center valign=middle>" . "<img border=\"0\" src=\"pic/flag/". $arr["flagpic"] . "\" alt=\"" . $arr["lang_name"] . "\" title=\"" . $arr["lang_name"] . "\"/>" . "</td>\n";
-			$title = "<td class=rowfollow align=left><a href=\"" . (isset($start_subid) && $arr['id'] <= $start_subid ?  "downloadsubs_legacy.php/" . $arr['filename'] : "downloadsubs.php?torrentid=" . $arr['torrent_id'] ."&subid=" .$arr['id']) . "\"<b>" . htmlspecialchars($arr["title"]) . "</b></a>" .
-			($mod || ($pu && $arr["uppedby"] == $CURUSER["id"]) ? " <font class=small><a href=?delete=$arr[id]>".$lang_subtitles['text_delete']."</a></font>" : "") ."</td>\n";
+			$title = "<td class=rowfollow align=left>"
+				."[<a href=\"details.php?id={$arr['torrent_id']}\"><b>{$arr['torrent_id']}</b></a>] "
+				."<a href=\"" . (isset($start_subid) && $arr['id'] <= $start_subid ?  "downloadsubs_legacy.php/" . $arr['filename'] : "downloadsubs.php?torrentid=" . $arr['torrent_id'] ."&subid=" .$arr['id']) . "\">" . htmlspecialchars($arr["title"]) . "</a>"
+				.(nexus_config('ext_font_lib.enabled') && in_array($arr['ext'], nexus_config('ext_font_lib.support_type')) ? " <font class=\"small\">[<a href=\"downloadsubs.php?torrentid=".$arr['torrent_id']."&subid=".$arr['id']."&extfont=1\">外部资源</a>]</font>" : "")
+				.($mod || ($pu && $arr["uppedby"] == $CURUSER["id"]) ? " <font class=small><a href=?delete=$arr[id]>".$lang_subtitles['text_delete']."</a></font>" : "")
+				."</td>\n";
 			$addtime = gettime($arr["added"],false,false);
 			$added = "<td class=rowfollow align=center><nobr>" . $addtime . "</nobr></td>\n";
 			$size = "<td class=rowfollow align=center>" . mksize_loose($arr['size']) . "</td>\n";
