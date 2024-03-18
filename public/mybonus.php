@@ -295,7 +295,7 @@ function bonusarray($option = 0){
 }
 
 $allBonus = bonusarray();
-$lockSeconds = 10;
+$lockSeconds = 3;
 $lockText = sprintf($lang_mybonus['lock_text'], $lockSeconds);
 if ($bonus_tweak == "disable" || $bonus_tweak == "disablesave")
 	stderr($lang_mybonus['std_sorry'],$lang_mybonus['std_karma_system_disabled'].($bonus_tweak == "disablesave" ? "<b>".$lang_mybonus['std_points_active']."</b>" : ""),false);
