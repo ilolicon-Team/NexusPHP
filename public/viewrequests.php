@@ -293,7 +293,7 @@ else {
             if (!is_numeric($_POST["amount"])) stderr($lang_functions['std_error'], "{$lang_viewrequests['amount_must_be_numeric']}<a href=viewrequests.php?action=new>{$lang_functions['std_click_here_to_goback']}</a>", 0);
             $amount = $_POST["amount"];
             if ($amount < 100) stderr($lang_functions['std_error'], "{$lang_viewrequests['add_request_amount_minimum']}<a href='viewrequests.php?action=new'>{$lang_functions['std_click_here_to_goback']}</a>", 0);
-            if ($amount > 10000) stderr($lang_functions['std_error'], "{$lang_viewrequests['add_request_amount_maximum']}<a href='viewrequests.php?action=new'>{$lang_functions['std_click_here_to_goback']}</a>", 0);
+            if ($amount > 100000) stderr($lang_functions['std_error'], "{$lang_viewrequests['add_request_amount_maximum']}<a href='viewrequests.php?action=new'>{$lang_functions['std_click_here_to_goback']}</a>", 0);
             $amount += 100;
             if ($amount + 100 > $CURUSER['seedbonus']) stderr($lang_functions['std_error'], "{$lang_viewrequests['bouns_not_enough']}<a href='viewrequests.php?action=new'>{$lang_functions['std_click_here_to_goback']}</a>", 0);
             if (get_user_class() >= 1) {
@@ -376,7 +376,7 @@ else {
             if (!is_numeric($_POST["amount"])) stderr($lang_functions['std_error'], $lang_viewrequests['amount_must_be_numeric']);
             $amount = $_POST["amount"];
             if ($amount < 100) stderr($lang_functions['std_error'], $lang_viewrequests['add_reward_amount_minimum']);
-            if ($amount > 5000) stderr($lang_functions['std_error'], $lang_viewrequests['add_reward_amount_maximum']);
+            if ($amount > 50000) stderr($lang_functions['std_error'], $lang_viewrequests['add_reward_amount_maximum']);
             $amount += 25;
             if ($amount > $CURUSER['seedbonus']) stderr($lang_functions['std_error'], $lang_viewrequests['bouns_not_enough']);
             sql_query("UPDATE users SET seedbonus = seedbonus - " . $amount . " WHERE id = " . $CURUSER['id']);
