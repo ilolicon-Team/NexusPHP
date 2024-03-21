@@ -139,7 +139,7 @@ class Torrent extends NexusModel
         self::PROMOTION_TIME_TYPE_DEADLINE => ['text' => 'Until'],
     ];
 
-    const BONUS_REWARD_VALUES = [50, 100, 200, 500, 1000];
+    const BONUS_REWARD_VALUES = [1011, 3000, 6666, 20000, 66666];
 
     const APPROVAL_STATUS_NONE = 0;
     const APPROVAL_STATUS_ALLOW = 1;
