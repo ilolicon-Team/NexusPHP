@@ -70,6 +70,7 @@ if (get_user_class() >= UC_MODERATOR || $CURUSER["guard"] == "yes")
 
 			$peer_res = sql_query("SELECT count(*) FROM peers WHERE ip = " . sqlesc($ras['ip']) . " AND userid = " . $arr['id']);
 			$peer_row = mysql_fetch_row($peer_res);
+            list($loc_pub, $loc_mod) = get_ip_location($arr['ip']);
 		  print("<tr$utc><td align=left>" . get_username($arr["id"])."</td>
 				  <td align=center>$arr[email]</td>
 				  <td align=center>$added</td>
@@ -77,7 +78,7 @@ if (get_user_class() >= UC_MODERATOR || $CURUSER["guard"] == "yes")
 				  <td align=center>$downloaded</td>
 				  <td align=center>$uploaded</td>
 				  <td align=center>$ratio</td>
-				  <td align=center><a href=\"http://www.whois.sc/$arr[ip]\" target=\"_blank\">$arr[ip]</a></td>\n<td align=center>" .
+				  <td align=center><a href=\"http://www.whois.sc/$arr[ip]\" target=\"_blank\">$arr[ip] [" . $loc_pub . "]</a></td>\n<td align=center>" .
 				  ($peer_row[0] ? "ja" : "nein") . "</td></tr>\n");
 		  $ip = $arr["ip"];
 		}
