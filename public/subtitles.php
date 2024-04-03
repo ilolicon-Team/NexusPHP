@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["action"]) && $_POST["a
 		exit;
 	}
 
-	$accept_ext = array('sub' => 'sub', 'srt' => 'srt', 'zip' => 'zip', 'rar' => 'rar', 'ace' => 'ace', 'txt' => 'txt', 'SUB' => 'SUB', 'SRT' => 'SRT', 'ZIP' => 'ZIP', 'RAR' => 'RAR', 'ACE' => 'ACE', 'TXT' => 'TXT', 'ssa' => 'ssa', 'ass' => 'ass', 'cue' => 'cue');
+	$accept_ext = array('sub' => 'sub', 'srt' => 'srt', 'zip' => 'zip', 'rar' => 'rar', 'ace' => 'ace', 'txt' => 'txt', 'SUB' => 'SUB', 'SRT' => 'SRT', 'ZIP' => 'ZIP', 'RAR' => 'RAR', 'ACE' => 'ACE', 'TXT' => 'TXT', 'ssa' => 'ssa', 'ass' => 'ass', 'cue' => 'cue', '7Z' => '7z');
 	$ext_l = strrpos($file['name'], ".");
 	$ext = strtolower(substr($file['name'], $ext_l+1, strlen($file['name'])-($ext_l+1)));
 
